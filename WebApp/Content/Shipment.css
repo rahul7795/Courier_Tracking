@@ -1,0 +1,120 @@
+﻿  .card {
+  width: 100%;
+  border-radius: 6px;
+  padding: 4rem;
+  place-self: center;
+  background-color: #fff;
+  font-family: sans-serif;
+  box-shadow: 6px 6px 20px rgba(0,0,0,0.3);
+}
+.title {
+  padding-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+.line {
+  width: 20%;
+  height: 5px;
+  background-color: #e48e5e;
+  border: transparent;
+  margin-bottom: 4rem;
+}
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.step {
+  width: 100%;
+}
+
+.step_success{
+    position: relative;
+  background-color: #32CD32;
+  height: 40px;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: sans-serif;
+}
+.step_success:after {
+  border-left: 20px solid #32CD32;
+  right: -20px;
+}
+.step_success:before,
+.step_success:after {
+  content: "";
+  position: absolute;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.step_success:before {
+  border-left: 20px solid #fff;
+  left: 0;
+}
+.step_success:after {
+  border-left: 20px solid #32CD32;
+  right: -20px;
+}
+
+
+.step_processing{
+    position: relative;
+  background-color: #D3D3D3;
+  height: 40px;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: sans-serif;
+}
+.step_processing:after {
+  border-left: 20px solid #D3D3D3;
+  right: -20px;
+}
+.step_processing:before,
+.step_processing:after {
+  content: "";
+  position: absolute;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.step_processing:before {
+  border-left: 20px solid #fff;
+  left: 0;
+}
+.step_processing:after {
+  border-left: 20px solid #D3D3D3;
+  right: -20px;
+}
+
+
+
+.step_reject{
+    position: relative;
+  background-color: #B80F0A;
+  height: 40px;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: sans-serif;
+}
+.step_reject:after {
+  border-left: 20px solid #B80F0A;
+  right: -20px;
+}
+.step_reject:before,
+.step_reject:after {
+  content: "";
+  position: absolute;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+.step_reject:before {
+  border-left: 20px solid #fff;
+  left: 0;
+}
+.step_reject:after {
+  border-left: 20px solid #B80F0A;
+  right: -20px;
+}

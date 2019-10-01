@@ -1,0 +1,21 @@
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\bin\Debug\BAL.dll
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\bin\Debug\BAL.pdb
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\obj\Debug\BAL.dll
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\obj\Debug\BAL.pdb
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\bin\Debug\DAL.dll
+c:\users\805506\documents\visual studio 2015\Projects\CTS\BAL\bin\Debug\DAL.pdb
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\BAL.dll
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\BAL.pdb
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\DAL.dll
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\DAL.pdb
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\obj\Debug\BAL.dll
+C:\Users\805506\Source\Repos\Courier-Tracking-System\BAL\obj\Debug\BAL.pdb
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\BAL.dll
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\BAL.pdb
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\DAL.dll
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\bin\Debug\DAL.pdb
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\obj\Debug\BAL.csprojResolveAssemblyReference.cache
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\obj\Debug\BAL.dll
+C:\Users\805685\Source\Repos\Courier-Tracking-System\BAL\obj\Debug\BAL.pdb

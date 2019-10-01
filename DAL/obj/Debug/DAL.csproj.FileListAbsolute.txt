@@ -1,0 +1,18 @@
+c:\users\805506\documents\visual studio 2015\Projects\CTS\DAL\bin\Debug\DAL.dll.config
+c:\users\805506\documents\visual studio 2015\Projects\CTS\DAL\bin\Debug\DAL.dll
+c:\users\805506\documents\visual studio 2015\Projects\CTS\DAL\bin\Debug\DAL.pdb
+c:\users\805506\documents\visual studio 2015\Projects\CTS\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+c:\users\805506\documents\visual studio 2015\Projects\CTS\DAL\obj\Debug\DAL.dll
+c:\users\805506\documents\visual studio 2015\Projects\CTS\DAL\obj\Debug\DAL.pdb
+C:\Users\805506\Source\Repos\Courier-Tracking-System\DAL\bin\Debug\DAL.dll.config
+C:\Users\805506\Source\Repos\Courier-Tracking-System\DAL\bin\Debug\DAL.dll
+C:\Users\805506\Source\Repos\Courier-Tracking-System\DAL\bin\Debug\DAL.pdb
+C:\Users\805506\Source\Repos\Courier-Tracking-System\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\805506\Source\Repos\Courier-Tracking-System\DAL\obj\Debug\DAL.dll
+C:\Users\805506\Source\Repos\Courier-Tracking-System\DAL\obj\Debug\DAL.pdb
+C:\Users\805685\Source\Repos\Courier-Tracking-System\DAL\bin\Debug\DAL.dll.config
+C:\Users\805685\Source\Repos\Courier-Tracking-System\DAL\bin\Debug\DAL.dll
+C:\Users\805685\Source\Repos\Courier-Tracking-System\DAL\bin\Debug\DAL.pdb
+C:\Users\805685\Source\Repos\Courier-Tracking-System\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\805685\Source\Repos\Courier-Tracking-System\DAL\obj\Debug\DAL.dll
+C:\Users\805685\Source\Repos\Courier-Tracking-System\DAL\obj\Debug\DAL.pdb
