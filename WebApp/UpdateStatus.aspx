@@ -1,5 +1,4 @@
-﻿<%@ Page Title="ABC Courier Services - Approve Packages" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ApprovePackageX.aspx.cs" Inherits="WebApp.ApprovePackageX" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UpdateStatus.aspx.cs" Inherits="WebApp.UpdateStatus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="UpdateStatus"  style="margin-top:5% !important;">
 
@@ -39,7 +38,7 @@
 
                 <asp:TemplateField HeaderText="Cost">
                     <ItemTemplate>
-                        <asp:TextBox runat="server" TextMode="Number" ClientIDMode="Static" CssClass="form-control" ID="txtPkCost" Text=0></asp:TextBox>
+                        <asp:Label runat="server" ClientIDMode="Static" CssClass="form-control" ID="txtPkCost" Text='<%#Eval("pk_cost")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -68,12 +67,11 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                                 
-                <asp:ButtonField HeaderText="Approve" ButtonType="Image" ImageUrl="Images/ok.png" CommandName="approve"/>
+                <asp:ButtonField HeaderText="Update" ButtonType="Image" ImageUrl="Images/ok.png" CommandName="change"/>
                 <asp:ButtonField HeaderText="Reject" ButtonType="Image" ImageUrl="Images/delete.png" CommandName="reject"/>
 
             </Columns>
         </asp:GridView>
-
 
     </div>
 </asp:Content>

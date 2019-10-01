@@ -28,6 +28,14 @@ namespace DAL
             }
         }
 
+        public static List<Cts_Package> UserPackageUpdateStatus()
+        {
+            using (DBContextDataContext db = new DBContextDataContext())
+            {
+                return db.Cts_Packages.Where(x => x.pk_isActive == true && x.pk_Package_Status != "Delivered").ToList();
+            }
+        }
+
         public static bool ApproveUsers(int um_id, bool status, string empId, string name, long salary)
         {
             using (DBContextDataContext db = new DBContextDataContext())

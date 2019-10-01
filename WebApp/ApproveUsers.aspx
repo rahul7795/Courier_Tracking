@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="ABC Courier Services - Approve Users" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ApproveUsers.aspx.cs" Inherits="WebApp.ApproveUsers" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container" style="margin-top:5% !important;">
+
         <asp:GridView runat="server" ID="gdvApprovalData" class="table table-responsive" AutoGenerateColumns="false"
             OnRowCommand="gdvApprovalData_RowCommand">
 
@@ -9,12 +10,14 @@
                     <ItemTemplate>
                         <asp:Label runat="server" ID="lblId" Text='<%#Eval("um_id") %>'></asp:Label>
                     </ItemTemplate>
-                </asp:TemplateField>       
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Role">
                     <ItemTemplate>
                         <asp:Label runat="server" ID="lblRoleId" Text='<%#Eval("um_RoleId").ToString()=="1"?"Super Admin":(Eval("um_RoleId").ToString()=="2"?"Admin":(Eval("um_RoleId").ToString()=="3"?"Staff":"User")) %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+
                  <asp:TemplateField HeaderText="Name">
                     <ItemTemplate>
                         <asp:Label runat="server" ID="lblName" Text='<%#Eval("um_firstName")+" "+Eval("um_lastName") %>'></asp:Label>
@@ -48,6 +51,8 @@
                 <asp:ButtonField HeaderText="Approve" ButtonType="Image" ImageUrl="Images/ok.png" CommandName="approve"/>
                 <asp:ButtonField HeaderText="Reject" ButtonType="Image" ImageUrl="Images/delete.png" CommandName="reject"/>                
                 </Columns>
+
         </asp:GridView>
+
     </div>
 </asp:Content>

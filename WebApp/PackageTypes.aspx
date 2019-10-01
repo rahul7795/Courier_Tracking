@@ -5,7 +5,7 @@
         <center><h1>Package Types</h1></center>
         <h3>Types of services</h3>
         <p>
-            Courier companies offer different services, so customers can choose among different options, depending on their budget and needs.
+            ABC Courier services offer different services, so customers can choose among different options, depending on their budget and needs.
             
         </p>
 

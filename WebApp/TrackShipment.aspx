@@ -15,11 +15,13 @@
                         <asp:Label runat="server" ID="lblcnsngId" Text='<%#Eval("pk_consignment_id") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Weight">
                     <ItemTemplate>
                         <asp:Label runat="server" ID="lblpkWeight" Text='<%#Eval("pk_Package_weight") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Sender City">
                     <ItemTemplate>
                         <asp:Label runat="server" ID="lblSendAddress" Text='<%#Eval("pk_Sender_address") %>'></asp:Label>

@@ -30,22 +30,22 @@ namespace DAL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertRoleMaster(RoleMaster instance);
-    partial void UpdateRoleMaster(RoleMaster instance);
-    partial void DeleteRoleMaster(RoleMaster instance);
-    partial void InsertCts_User_Master(Cts_User_Master instance);
-    partial void UpdateCts_User_Master(Cts_User_Master instance);
-    partial void DeleteCts_User_Master(Cts_User_Master instance);
     partial void InsertCts_BranchMaster(Cts_BranchMaster instance);
     partial void UpdateCts_BranchMaster(Cts_BranchMaster instance);
     partial void DeleteCts_BranchMaster(Cts_BranchMaster instance);
     partial void InsertCts_Package(Cts_Package instance);
     partial void UpdateCts_Package(Cts_Package instance);
     partial void DeleteCts_Package(Cts_Package instance);
+    partial void InsertCts_User_Master(Cts_User_Master instance);
+    partial void UpdateCts_User_Master(Cts_User_Master instance);
+    partial void DeleteCts_User_Master(Cts_User_Master instance);
+    partial void InsertRoleMaster(RoleMaster instance);
+    partial void UpdateRoleMaster(RoleMaster instance);
+    partial void DeleteRoleMaster(RoleMaster instance);
     #endregion
 		
 		public DBContextDataContext() : 
-				base(global::DAL.Properties.Settings.Default.Courier_Tracking_SystemConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.Courier_Tracking_SystemConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -74,22 +74,6 @@ namespace DAL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<RoleMaster> RoleMasters
-		{
-			get
-			{
-				return this.GetTable<RoleMaster>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Cts_User_Master> Cts_User_Masters
-		{
-			get
-			{
-				return this.GetTable<Cts_User_Master>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Cts_BranchMaster> Cts_BranchMasters
 		{
 			get
@@ -105,754 +89,21 @@ namespace DAL
 				return this.GetTable<Cts_Package>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMaster")]
-	public partial class RoleMaster : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _RoleID;
-		
-		private string _RoleDescription;
-		
-		private System.Nullable<System.DateTime> _CreatedOn;
-		
-		private string _CreatedBy;
-		
-		private System.Nullable<bool> _IsActive;
-		
-		private EntitySet<Cts_User_Master> _Cts_User_Masters;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRoleIDChanging(int value);
-    partial void OnRoleIDChanged();
-    partial void OnRoleDescriptionChanging(string value);
-    partial void OnRoleDescriptionChanged();
-    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedOnChanged();
-    partial void OnCreatedByChanging(string value);
-    partial void OnCreatedByChanged();
-    partial void OnIsActiveChanging(System.Nullable<bool> value);
-    partial void OnIsActiveChanged();
-    #endregion
-		
-		public RoleMaster()
-		{
-			this._Cts_User_Masters = new EntitySet<Cts_User_Master>(new Action<Cts_User_Master>(this.attach_Cts_User_Masters), new Action<Cts_User_Master>(this.detach_Cts_User_Masters));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int RoleID
+		public System.Data.Linq.Table<Cts_User_Master> Cts_User_Masters
 		{
 			get
 			{
-				return this._RoleID;
-			}
-			set
-			{
-				if ((this._RoleID != value))
-				{
-					this.OnRoleIDChanging(value);
-					this.SendPropertyChanging();
-					this._RoleID = value;
-					this.SendPropertyChanged("RoleID");
-					this.OnRoleIDChanged();
-				}
+				return this.GetTable<Cts_User_Master>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleDescription", DbType="VarChar(50)")]
-		public string RoleDescription
+		public System.Data.Linq.Table<RoleMaster> RoleMasters
 		{
 			get
 			{
-				return this._RoleDescription;
+				return this.GetTable<RoleMaster>();
 			}
-			set
-			{
-				if ((this._RoleDescription != value))
-				{
-					this.OnRoleDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._RoleDescription = value;
-					this.SendPropertyChanged("RoleDescription");
-					this.OnRoleDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CreatedOn
-		{
-			get
-			{
-				return this._CreatedOn;
-			}
-			set
-			{
-				if ((this._CreatedOn != value))
-				{
-					this.OnCreatedOnChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedOn = value;
-					this.SendPropertyChanged("CreatedOn");
-					this.OnCreatedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(50)")]
-		public string CreatedBy
-		{
-			get
-			{
-				return this._CreatedBy;
-			}
-			set
-			{
-				if ((this._CreatedBy != value))
-				{
-					this.OnCreatedByChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedBy = value;
-					this.SendPropertyChanged("CreatedBy");
-					this.OnCreatedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit")]
-		public System.Nullable<bool> IsActive
-		{
-			get
-			{
-				return this._IsActive;
-			}
-			set
-			{
-				if ((this._IsActive != value))
-				{
-					this.OnIsActiveChanging(value);
-					this.SendPropertyChanging();
-					this._IsActive = value;
-					this.SendPropertyChanged("IsActive");
-					this.OnIsActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RoleMaster_Cts_User_Master", Storage="_Cts_User_Masters", ThisKey="RoleID", OtherKey="um_RoleId")]
-		public EntitySet<Cts_User_Master> Cts_User_Masters
-		{
-			get
-			{
-				return this._Cts_User_Masters;
-			}
-			set
-			{
-				this._Cts_User_Masters.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Cts_User_Masters(Cts_User_Master entity)
-		{
-			this.SendPropertyChanging();
-			entity.RoleMaster = this;
-		}
-		
-		private void detach_Cts_User_Masters(Cts_User_Master entity)
-		{
-			this.SendPropertyChanging();
-			entity.RoleMaster = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cts_User_Master")]
-	public partial class Cts_User_Master : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _um_id;
-		
-		private string _um_userId;
-		
-		private string _um_password;
-		
-		private string _um_firstName;
-		
-		private string _um_lastName;
-		
-		private string _um_gender;
-		
-		private string _um_contact;
-		
-		private string _um_emailId;
-		
-		private System.Nullable<bool> _um_isActive;
-		
-		private System.Nullable<long> _um_Salary;
-		
-		private string _um_Designation;
-		
-		private string _um_PerAddress;
-		
-		private string _um_CorAddress;
-		
-		private System.Nullable<System.DateTime> _um_created_On;
-		
-		private string _um_created_by;
-		
-		private System.Nullable<System.DateTime> _um_IsApprovedOn;
-		
-		private string _um_IsApprovedBy;
-		
-		private System.Nullable<int> _um_RoleId;
-		
-		private string _um_emp_cid;
-		
-		private EntitySet<Cts_Package> _Cts_Packages;
-		
-		private EntityRef<RoleMaster> _RoleMaster;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onum_idChanging(int value);
-    partial void Onum_idChanged();
-    partial void Onum_userIdChanging(string value);
-    partial void Onum_userIdChanged();
-    partial void Onum_passwordChanging(string value);
-    partial void Onum_passwordChanged();
-    partial void Onum_firstNameChanging(string value);
-    partial void Onum_firstNameChanged();
-    partial void Onum_lastNameChanging(string value);
-    partial void Onum_lastNameChanged();
-    partial void Onum_genderChanging(string value);
-    partial void Onum_genderChanged();
-    partial void Onum_contactChanging(string value);
-    partial void Onum_contactChanged();
-    partial void Onum_emailIdChanging(string value);
-    partial void Onum_emailIdChanged();
-    partial void Onum_isActiveChanging(System.Nullable<bool> value);
-    partial void Onum_isActiveChanged();
-    partial void Onum_SalaryChanging(System.Nullable<long> value);
-    partial void Onum_SalaryChanged();
-    partial void Onum_DesignationChanging(string value);
-    partial void Onum_DesignationChanged();
-    partial void Onum_PerAddressChanging(string value);
-    partial void Onum_PerAddressChanged();
-    partial void Onum_CorAddressChanging(string value);
-    partial void Onum_CorAddressChanged();
-    partial void Onum_created_OnChanging(System.Nullable<System.DateTime> value);
-    partial void Onum_created_OnChanged();
-    partial void Onum_created_byChanging(string value);
-    partial void Onum_created_byChanged();
-    partial void Onum_IsApprovedOnChanging(System.Nullable<System.DateTime> value);
-    partial void Onum_IsApprovedOnChanged();
-    partial void Onum_IsApprovedByChanging(string value);
-    partial void Onum_IsApprovedByChanged();
-    partial void Onum_RoleIdChanging(System.Nullable<int> value);
-    partial void Onum_RoleIdChanged();
-    partial void Onum_emp_cidChanging(string value);
-    partial void Onum_emp_cidChanged();
-    #endregion
-		
-		public Cts_User_Master()
-		{
-			this._Cts_Packages = new EntitySet<Cts_Package>(new Action<Cts_Package>(this.attach_Cts_Packages), new Action<Cts_Package>(this.detach_Cts_Packages));
-			this._RoleMaster = default(EntityRef<RoleMaster>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int um_id
-		{
-			get
-			{
-				return this._um_id;
-			}
-			set
-			{
-				if ((this._um_id != value))
-				{
-					this.Onum_idChanging(value);
-					this.SendPropertyChanging();
-					this._um_id = value;
-					this.SendPropertyChanged("um_id");
-					this.Onum_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_userId", DbType="VarChar(15)")]
-		public string um_userId
-		{
-			get
-			{
-				return this._um_userId;
-			}
-			set
-			{
-				if ((this._um_userId != value))
-				{
-					this.Onum_userIdChanging(value);
-					this.SendPropertyChanging();
-					this._um_userId = value;
-					this.SendPropertyChanged("um_userId");
-					this.Onum_userIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_password", DbType="VarChar(15)")]
-		public string um_password
-		{
-			get
-			{
-				return this._um_password;
-			}
-			set
-			{
-				if ((this._um_password != value))
-				{
-					this.Onum_passwordChanging(value);
-					this.SendPropertyChanging();
-					this._um_password = value;
-					this.SendPropertyChanged("um_password");
-					this.Onum_passwordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_firstName", DbType="VarChar(50)")]
-		public string um_firstName
-		{
-			get
-			{
-				return this._um_firstName;
-			}
-			set
-			{
-				if ((this._um_firstName != value))
-				{
-					this.Onum_firstNameChanging(value);
-					this.SendPropertyChanging();
-					this._um_firstName = value;
-					this.SendPropertyChanged("um_firstName");
-					this.Onum_firstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_lastName", DbType="VarChar(50)")]
-		public string um_lastName
-		{
-			get
-			{
-				return this._um_lastName;
-			}
-			set
-			{
-				if ((this._um_lastName != value))
-				{
-					this.Onum_lastNameChanging(value);
-					this.SendPropertyChanging();
-					this._um_lastName = value;
-					this.SendPropertyChanged("um_lastName");
-					this.Onum_lastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_gender", DbType="VarChar(6)")]
-		public string um_gender
-		{
-			get
-			{
-				return this._um_gender;
-			}
-			set
-			{
-				if ((this._um_gender != value))
-				{
-					this.Onum_genderChanging(value);
-					this.SendPropertyChanging();
-					this._um_gender = value;
-					this.SendPropertyChanged("um_gender");
-					this.Onum_genderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_contact", DbType="VarChar(10)")]
-		public string um_contact
-		{
-			get
-			{
-				return this._um_contact;
-			}
-			set
-			{
-				if ((this._um_contact != value))
-				{
-					this.Onum_contactChanging(value);
-					this.SendPropertyChanging();
-					this._um_contact = value;
-					this.SendPropertyChanged("um_contact");
-					this.Onum_contactChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_emailId", DbType="VarChar(50)")]
-		public string um_emailId
-		{
-			get
-			{
-				return this._um_emailId;
-			}
-			set
-			{
-				if ((this._um_emailId != value))
-				{
-					this.Onum_emailIdChanging(value);
-					this.SendPropertyChanging();
-					this._um_emailId = value;
-					this.SendPropertyChanged("um_emailId");
-					this.Onum_emailIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_isActive", DbType="Bit")]
-		public System.Nullable<bool> um_isActive
-		{
-			get
-			{
-				return this._um_isActive;
-			}
-			set
-			{
-				if ((this._um_isActive != value))
-				{
-					this.Onum_isActiveChanging(value);
-					this.SendPropertyChanging();
-					this._um_isActive = value;
-					this.SendPropertyChanged("um_isActive");
-					this.Onum_isActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_Salary", DbType="BigInt")]
-		public System.Nullable<long> um_Salary
-		{
-			get
-			{
-				return this._um_Salary;
-			}
-			set
-			{
-				if ((this._um_Salary != value))
-				{
-					this.Onum_SalaryChanging(value);
-					this.SendPropertyChanging();
-					this._um_Salary = value;
-					this.SendPropertyChanged("um_Salary");
-					this.Onum_SalaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_Designation", DbType="VarChar(15)")]
-		public string um_Designation
-		{
-			get
-			{
-				return this._um_Designation;
-			}
-			set
-			{
-				if ((this._um_Designation != value))
-				{
-					this.Onum_DesignationChanging(value);
-					this.SendPropertyChanging();
-					this._um_Designation = value;
-					this.SendPropertyChanged("um_Designation");
-					this.Onum_DesignationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_PerAddress", DbType="VarChar(100)")]
-		public string um_PerAddress
-		{
-			get
-			{
-				return this._um_PerAddress;
-			}
-			set
-			{
-				if ((this._um_PerAddress != value))
-				{
-					this.Onum_PerAddressChanging(value);
-					this.SendPropertyChanging();
-					this._um_PerAddress = value;
-					this.SendPropertyChanged("um_PerAddress");
-					this.Onum_PerAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_CorAddress", DbType="VarChar(100)")]
-		public string um_CorAddress
-		{
-			get
-			{
-				return this._um_CorAddress;
-			}
-			set
-			{
-				if ((this._um_CorAddress != value))
-				{
-					this.Onum_CorAddressChanging(value);
-					this.SendPropertyChanging();
-					this._um_CorAddress = value;
-					this.SendPropertyChanged("um_CorAddress");
-					this.Onum_CorAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_created_On", DbType="Date")]
-		public System.Nullable<System.DateTime> um_created_On
-		{
-			get
-			{
-				return this._um_created_On;
-			}
-			set
-			{
-				if ((this._um_created_On != value))
-				{
-					this.Onum_created_OnChanging(value);
-					this.SendPropertyChanging();
-					this._um_created_On = value;
-					this.SendPropertyChanged("um_created_On");
-					this.Onum_created_OnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_created_by", DbType="VarChar(20)")]
-		public string um_created_by
-		{
-			get
-			{
-				return this._um_created_by;
-			}
-			set
-			{
-				if ((this._um_created_by != value))
-				{
-					this.Onum_created_byChanging(value);
-					this.SendPropertyChanging();
-					this._um_created_by = value;
-					this.SendPropertyChanged("um_created_by");
-					this.Onum_created_byChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_IsApprovedOn", DbType="DateTime")]
-		public System.Nullable<System.DateTime> um_IsApprovedOn
-		{
-			get
-			{
-				return this._um_IsApprovedOn;
-			}
-			set
-			{
-				if ((this._um_IsApprovedOn != value))
-				{
-					this.Onum_IsApprovedOnChanging(value);
-					this.SendPropertyChanging();
-					this._um_IsApprovedOn = value;
-					this.SendPropertyChanged("um_IsApprovedOn");
-					this.Onum_IsApprovedOnChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_IsApprovedBy", DbType="VarChar(50)")]
-		public string um_IsApprovedBy
-		{
-			get
-			{
-				return this._um_IsApprovedBy;
-			}
-			set
-			{
-				if ((this._um_IsApprovedBy != value))
-				{
-					this.Onum_IsApprovedByChanging(value);
-					this.SendPropertyChanging();
-					this._um_IsApprovedBy = value;
-					this.SendPropertyChanged("um_IsApprovedBy");
-					this.Onum_IsApprovedByChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_RoleId", DbType="Int")]
-		public System.Nullable<int> um_RoleId
-		{
-			get
-			{
-				return this._um_RoleId;
-			}
-			set
-			{
-				if ((this._um_RoleId != value))
-				{
-					if (this._RoleMaster.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onum_RoleIdChanging(value);
-					this.SendPropertyChanging();
-					this._um_RoleId = value;
-					this.SendPropertyChanged("um_RoleId");
-					this.Onum_RoleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_emp_cid", AutoSync=AutoSync.Always, DbType="VarChar(37)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
-		public string um_emp_cid
-		{
-			get
-			{
-				return this._um_emp_cid;
-			}
-			set
-			{
-				if ((this._um_emp_cid != value))
-				{
-					this.Onum_emp_cidChanging(value);
-					this.SendPropertyChanging();
-					this._um_emp_cid = value;
-					this.SendPropertyChanged("um_emp_cid");
-					this.Onum_emp_cidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cts_User_Master_Cts_Package", Storage="_Cts_Packages", ThisKey="um_id", OtherKey="pk_Customer_id")]
-		public EntitySet<Cts_Package> Cts_Packages
-		{
-			get
-			{
-				return this._Cts_Packages;
-			}
-			set
-			{
-				this._Cts_Packages.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RoleMaster_Cts_User_Master", Storage="_RoleMaster", ThisKey="um_RoleId", OtherKey="RoleID", IsForeignKey=true)]
-		public RoleMaster RoleMaster
-		{
-			get
-			{
-				return this._RoleMaster.Entity;
-			}
-			set
-			{
-				RoleMaster previousValue = this._RoleMaster.Entity;
-				if (((previousValue != value) 
-							|| (this._RoleMaster.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._RoleMaster.Entity = null;
-						previousValue.Cts_User_Masters.Remove(this);
-					}
-					this._RoleMaster.Entity = value;
-					if ((value != null))
-					{
-						value.Cts_User_Masters.Add(this);
-						this._um_RoleId = value.RoleID;
-					}
-					else
-					{
-						this._um_RoleId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("RoleMaster");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Cts_Packages(Cts_Package entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cts_User_Master = this;
-		}
-		
-		private void detach_Cts_Packages(Cts_Package entity)
-		{
-			this.SendPropertyChanging();
-			entity.Cts_User_Master = null;
 		}
 	}
 	
@@ -868,8 +119,6 @@ namespace DAL
 		
 		private System.Nullable<bool> _bm_IsActive;
 		
-		private System.Nullable<int> _bm_orders;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -880,8 +129,6 @@ namespace DAL
     partial void Onbm_branchNameChanged();
     partial void Onbm_IsActiveChanging(System.Nullable<bool> value);
     partial void Onbm_IsActiveChanged();
-    partial void Onbm_ordersChanging(System.Nullable<int> value);
-    partial void Onbm_ordersChanged();
     #endregion
 		
 		public Cts_BranchMaster()
@@ -949,26 +196,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bm_orders", DbType="Int")]
-		public System.Nullable<int> bm_orders
-		{
-			get
-			{
-				return this._bm_orders;
-			}
-			set
-			{
-				if ((this._bm_orders != value))
-				{
-					this.Onbm_ordersChanging(value);
-					this.SendPropertyChanging();
-					this._bm_orders = value;
-					this.SendPropertyChanged("bm_orders");
-					this.Onbm_ordersChanged();
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -998,6 +225,8 @@ namespace DAL
 		
 		private int _pk_consignment_id;
 		
+		private System.Nullable<System.DateTime> _pk_Add_Date;
+		
 		private System.Nullable<System.DateTime> _pk_Accept_Date;
 		
 		private System.Nullable<double> _pk_Package_weight;
@@ -1020,8 +249,6 @@ namespace DAL
 		
 		private System.Nullable<bool> _pk_isActive;
 		
-		private System.Nullable<System.DateTime> _pk_Add_Date;
-		
 		private EntityRef<Cts_User_Master> _Cts_User_Master;
 		
     #region Extensibility Method Definitions
@@ -1030,6 +257,8 @@ namespace DAL
     partial void OnCreated();
     partial void Onpk_consignment_idChanging(int value);
     partial void Onpk_consignment_idChanged();
+    partial void Onpk_Add_DateChanging(System.Nullable<System.DateTime> value);
+    partial void Onpk_Add_DateChanged();
     partial void Onpk_Accept_DateChanging(System.Nullable<System.DateTime> value);
     partial void Onpk_Accept_DateChanged();
     partial void Onpk_Package_weightChanging(System.Nullable<double> value);
@@ -1052,8 +281,6 @@ namespace DAL
     partial void Onpk_Package_StatusChanged();
     partial void Onpk_isActiveChanging(System.Nullable<bool> value);
     partial void Onpk_isActiveChanged();
-    partial void Onpk_Add_DateChanging(System.Nullable<System.DateTime> value);
-    partial void Onpk_Add_DateChanged();
     #endregion
 		
 		public Cts_Package()
@@ -1078,6 +305,26 @@ namespace DAL
 					this._pk_consignment_id = value;
 					this.SendPropertyChanged("pk_consignment_id");
 					this.Onpk_consignment_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pk_Add_Date", DbType="Date")]
+		public System.Nullable<System.DateTime> pk_Add_Date
+		{
+			get
+			{
+				return this._pk_Add_Date;
+			}
+			set
+			{
+				if ((this._pk_Add_Date != value))
+				{
+					this.Onpk_Add_DateChanging(value);
+					this.SendPropertyChanging();
+					this._pk_Add_Date = value;
+					this.SendPropertyChanged("pk_Add_Date");
+					this.Onpk_Add_DateChanged();
 				}
 			}
 		}
@@ -1306,26 +553,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pk_Add_Date", DbType="Date")]
-		public System.Nullable<System.DateTime> pk_Add_Date
-		{
-			get
-			{
-				return this._pk_Add_Date;
-			}
-			set
-			{
-				if ((this._pk_Add_Date != value))
-				{
-					this.Onpk_Add_DateChanging(value);
-					this.SendPropertyChanging();
-					this._pk_Add_Date = value;
-					this.SendPropertyChanged("pk_Add_Date");
-					this.Onpk_Add_DateChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cts_User_Master_Cts_Package", Storage="_Cts_User_Master", ThisKey="pk_Customer_id", OtherKey="um_id", IsForeignKey=true)]
 		public Cts_User_Master Cts_User_Master
 		{
@@ -1378,6 +605,755 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cts_User_Master")]
+	public partial class Cts_User_Master : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _um_id;
+		
+		private string _um_userId;
+		
+		private string _um_password;
+		
+		private string _um_firstName;
+		
+		private string _um_lastName;
+		
+		private string _um_gender;
+		
+		private string _um_contact;
+		
+		private string _um_emailId;
+		
+		private System.Nullable<bool> _um_isActive;
+		
+		private string _um_emp_cid;
+		
+		private System.Nullable<long> _um_Salary;
+		
+		private string _um_Designation;
+		
+		private string _um_PerAddress;
+		
+		private string _um_CorAddress;
+		
+		private System.Nullable<System.DateTime> _um_created_On;
+		
+		private string _um_created_by;
+		
+		private System.Nullable<System.DateTime> _um_IsApprovedOn;
+		
+		private string _um_IsApprovedBy;
+		
+		private System.Nullable<int> _um_RoleId;
+		
+		private EntitySet<Cts_Package> _Cts_Packages;
+		
+		private EntityRef<RoleMaster> _RoleMaster;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onum_idChanging(int value);
+    partial void Onum_idChanged();
+    partial void Onum_userIdChanging(string value);
+    partial void Onum_userIdChanged();
+    partial void Onum_passwordChanging(string value);
+    partial void Onum_passwordChanged();
+    partial void Onum_firstNameChanging(string value);
+    partial void Onum_firstNameChanged();
+    partial void Onum_lastNameChanging(string value);
+    partial void Onum_lastNameChanged();
+    partial void Onum_genderChanging(string value);
+    partial void Onum_genderChanged();
+    partial void Onum_contactChanging(string value);
+    partial void Onum_contactChanged();
+    partial void Onum_emailIdChanging(string value);
+    partial void Onum_emailIdChanged();
+    partial void Onum_isActiveChanging(System.Nullable<bool> value);
+    partial void Onum_isActiveChanged();
+    partial void Onum_emp_cidChanging(string value);
+    partial void Onum_emp_cidChanged();
+    partial void Onum_SalaryChanging(System.Nullable<long> value);
+    partial void Onum_SalaryChanged();
+    partial void Onum_DesignationChanging(string value);
+    partial void Onum_DesignationChanged();
+    partial void Onum_PerAddressChanging(string value);
+    partial void Onum_PerAddressChanged();
+    partial void Onum_CorAddressChanging(string value);
+    partial void Onum_CorAddressChanged();
+    partial void Onum_created_OnChanging(System.Nullable<System.DateTime> value);
+    partial void Onum_created_OnChanged();
+    partial void Onum_created_byChanging(string value);
+    partial void Onum_created_byChanged();
+    partial void Onum_IsApprovedOnChanging(System.Nullable<System.DateTime> value);
+    partial void Onum_IsApprovedOnChanged();
+    partial void Onum_IsApprovedByChanging(string value);
+    partial void Onum_IsApprovedByChanged();
+    partial void Onum_RoleIdChanging(System.Nullable<int> value);
+    partial void Onum_RoleIdChanged();
+    #endregion
+		
+		public Cts_User_Master()
+		{
+			this._Cts_Packages = new EntitySet<Cts_Package>(new Action<Cts_Package>(this.attach_Cts_Packages), new Action<Cts_Package>(this.detach_Cts_Packages));
+			this._RoleMaster = default(EntityRef<RoleMaster>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int um_id
+		{
+			get
+			{
+				return this._um_id;
+			}
+			set
+			{
+				if ((this._um_id != value))
+				{
+					this.Onum_idChanging(value);
+					this.SendPropertyChanging();
+					this._um_id = value;
+					this.SendPropertyChanged("um_id");
+					this.Onum_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_userId", DbType="VarChar(15)")]
+		public string um_userId
+		{
+			get
+			{
+				return this._um_userId;
+			}
+			set
+			{
+				if ((this._um_userId != value))
+				{
+					this.Onum_userIdChanging(value);
+					this.SendPropertyChanging();
+					this._um_userId = value;
+					this.SendPropertyChanged("um_userId");
+					this.Onum_userIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_password", DbType="VarChar(15)")]
+		public string um_password
+		{
+			get
+			{
+				return this._um_password;
+			}
+			set
+			{
+				if ((this._um_password != value))
+				{
+					this.Onum_passwordChanging(value);
+					this.SendPropertyChanging();
+					this._um_password = value;
+					this.SendPropertyChanged("um_password");
+					this.Onum_passwordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_firstName", DbType="VarChar(50)")]
+		public string um_firstName
+		{
+			get
+			{
+				return this._um_firstName;
+			}
+			set
+			{
+				if ((this._um_firstName != value))
+				{
+					this.Onum_firstNameChanging(value);
+					this.SendPropertyChanging();
+					this._um_firstName = value;
+					this.SendPropertyChanged("um_firstName");
+					this.Onum_firstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_lastName", DbType="VarChar(50)")]
+		public string um_lastName
+		{
+			get
+			{
+				return this._um_lastName;
+			}
+			set
+			{
+				if ((this._um_lastName != value))
+				{
+					this.Onum_lastNameChanging(value);
+					this.SendPropertyChanging();
+					this._um_lastName = value;
+					this.SendPropertyChanged("um_lastName");
+					this.Onum_lastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_gender", DbType="VarChar(6)")]
+		public string um_gender
+		{
+			get
+			{
+				return this._um_gender;
+			}
+			set
+			{
+				if ((this._um_gender != value))
+				{
+					this.Onum_genderChanging(value);
+					this.SendPropertyChanging();
+					this._um_gender = value;
+					this.SendPropertyChanged("um_gender");
+					this.Onum_genderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_contact", DbType="VarChar(10)")]
+		public string um_contact
+		{
+			get
+			{
+				return this._um_contact;
+			}
+			set
+			{
+				if ((this._um_contact != value))
+				{
+					this.Onum_contactChanging(value);
+					this.SendPropertyChanging();
+					this._um_contact = value;
+					this.SendPropertyChanged("um_contact");
+					this.Onum_contactChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_emailId", DbType="VarChar(50)")]
+		public string um_emailId
+		{
+			get
+			{
+				return this._um_emailId;
+			}
+			set
+			{
+				if ((this._um_emailId != value))
+				{
+					this.Onum_emailIdChanging(value);
+					this.SendPropertyChanging();
+					this._um_emailId = value;
+					this.SendPropertyChanged("um_emailId");
+					this.Onum_emailIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_isActive", DbType="Bit")]
+		public System.Nullable<bool> um_isActive
+		{
+			get
+			{
+				return this._um_isActive;
+			}
+			set
+			{
+				if ((this._um_isActive != value))
+				{
+					this.Onum_isActiveChanging(value);
+					this.SendPropertyChanging();
+					this._um_isActive = value;
+					this.SendPropertyChanged("um_isActive");
+					this.Onum_isActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_emp_cid", AutoSync=AutoSync.Always, DbType="VarChar(39)", IsDbGenerated=true, UpdateCheck=UpdateCheck.Never)]
+		public string um_emp_cid
+		{
+			get
+			{
+				return this._um_emp_cid;
+			}
+			set
+			{
+				if ((this._um_emp_cid != value))
+				{
+					this.Onum_emp_cidChanging(value);
+					this.SendPropertyChanging();
+					this._um_emp_cid = value;
+					this.SendPropertyChanged("um_emp_cid");
+					this.Onum_emp_cidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_Salary", DbType="BigInt")]
+		public System.Nullable<long> um_Salary
+		{
+			get
+			{
+				return this._um_Salary;
+			}
+			set
+			{
+				if ((this._um_Salary != value))
+				{
+					this.Onum_SalaryChanging(value);
+					this.SendPropertyChanging();
+					this._um_Salary = value;
+					this.SendPropertyChanged("um_Salary");
+					this.Onum_SalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_Designation", DbType="VarChar(15)")]
+		public string um_Designation
+		{
+			get
+			{
+				return this._um_Designation;
+			}
+			set
+			{
+				if ((this._um_Designation != value))
+				{
+					this.Onum_DesignationChanging(value);
+					this.SendPropertyChanging();
+					this._um_Designation = value;
+					this.SendPropertyChanged("um_Designation");
+					this.Onum_DesignationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_PerAddress", DbType="VarChar(100)")]
+		public string um_PerAddress
+		{
+			get
+			{
+				return this._um_PerAddress;
+			}
+			set
+			{
+				if ((this._um_PerAddress != value))
+				{
+					this.Onum_PerAddressChanging(value);
+					this.SendPropertyChanging();
+					this._um_PerAddress = value;
+					this.SendPropertyChanged("um_PerAddress");
+					this.Onum_PerAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_CorAddress", DbType="VarChar(100)")]
+		public string um_CorAddress
+		{
+			get
+			{
+				return this._um_CorAddress;
+			}
+			set
+			{
+				if ((this._um_CorAddress != value))
+				{
+					this.Onum_CorAddressChanging(value);
+					this.SendPropertyChanging();
+					this._um_CorAddress = value;
+					this.SendPropertyChanged("um_CorAddress");
+					this.Onum_CorAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_created_On", DbType="Date")]
+		public System.Nullable<System.DateTime> um_created_On
+		{
+			get
+			{
+				return this._um_created_On;
+			}
+			set
+			{
+				if ((this._um_created_On != value))
+				{
+					this.Onum_created_OnChanging(value);
+					this.SendPropertyChanging();
+					this._um_created_On = value;
+					this.SendPropertyChanged("um_created_On");
+					this.Onum_created_OnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_created_by", DbType="VarChar(20)")]
+		public string um_created_by
+		{
+			get
+			{
+				return this._um_created_by;
+			}
+			set
+			{
+				if ((this._um_created_by != value))
+				{
+					this.Onum_created_byChanging(value);
+					this.SendPropertyChanging();
+					this._um_created_by = value;
+					this.SendPropertyChanged("um_created_by");
+					this.Onum_created_byChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_IsApprovedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> um_IsApprovedOn
+		{
+			get
+			{
+				return this._um_IsApprovedOn;
+			}
+			set
+			{
+				if ((this._um_IsApprovedOn != value))
+				{
+					this.Onum_IsApprovedOnChanging(value);
+					this.SendPropertyChanging();
+					this._um_IsApprovedOn = value;
+					this.SendPropertyChanged("um_IsApprovedOn");
+					this.Onum_IsApprovedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_IsApprovedBy", DbType="VarChar(50)")]
+		public string um_IsApprovedBy
+		{
+			get
+			{
+				return this._um_IsApprovedBy;
+			}
+			set
+			{
+				if ((this._um_IsApprovedBy != value))
+				{
+					this.Onum_IsApprovedByChanging(value);
+					this.SendPropertyChanging();
+					this._um_IsApprovedBy = value;
+					this.SendPropertyChanged("um_IsApprovedBy");
+					this.Onum_IsApprovedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_um_RoleId", DbType="Int")]
+		public System.Nullable<int> um_RoleId
+		{
+			get
+			{
+				return this._um_RoleId;
+			}
+			set
+			{
+				if ((this._um_RoleId != value))
+				{
+					if (this._RoleMaster.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onum_RoleIdChanging(value);
+					this.SendPropertyChanging();
+					this._um_RoleId = value;
+					this.SendPropertyChanged("um_RoleId");
+					this.Onum_RoleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cts_User_Master_Cts_Package", Storage="_Cts_Packages", ThisKey="um_id", OtherKey="pk_Customer_id")]
+		public EntitySet<Cts_Package> Cts_Packages
+		{
+			get
+			{
+				return this._Cts_Packages;
+			}
+			set
+			{
+				this._Cts_Packages.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RoleMaster_Cts_User_Master", Storage="_RoleMaster", ThisKey="um_RoleId", OtherKey="RoleID", IsForeignKey=true)]
+		public RoleMaster RoleMaster
+		{
+			get
+			{
+				return this._RoleMaster.Entity;
+			}
+			set
+			{
+				RoleMaster previousValue = this._RoleMaster.Entity;
+				if (((previousValue != value) 
+							|| (this._RoleMaster.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._RoleMaster.Entity = null;
+						previousValue.Cts_User_Masters.Remove(this);
+					}
+					this._RoleMaster.Entity = value;
+					if ((value != null))
+					{
+						value.Cts_User_Masters.Add(this);
+						this._um_RoleId = value.RoleID;
+					}
+					else
+					{
+						this._um_RoleId = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("RoleMaster");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Cts_Packages(Cts_Package entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cts_User_Master = this;
+		}
+		
+		private void detach_Cts_Packages(Cts_Package entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cts_User_Master = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RoleMaster")]
+	public partial class RoleMaster : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RoleID;
+		
+		private string _RoleDescription;
+		
+		private System.Nullable<System.DateTime> _CreatedOn;
+		
+		private string _CreatedBy;
+		
+		private System.Nullable<bool> _IsActive;
+		
+		private EntitySet<Cts_User_Master> _Cts_User_Masters;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRoleIDChanging(int value);
+    partial void OnRoleIDChanged();
+    partial void OnRoleDescriptionChanging(string value);
+    partial void OnRoleDescriptionChanged();
+    partial void OnCreatedOnChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedOnChanged();
+    partial void OnCreatedByChanging(string value);
+    partial void OnCreatedByChanged();
+    partial void OnIsActiveChanging(System.Nullable<bool> value);
+    partial void OnIsActiveChanged();
+    #endregion
+		
+		public RoleMaster()
+		{
+			this._Cts_User_Masters = new EntitySet<Cts_User_Master>(new Action<Cts_User_Master>(this.attach_Cts_User_Masters), new Action<Cts_User_Master>(this.detach_Cts_User_Masters));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int RoleID
+		{
+			get
+			{
+				return this._RoleID;
+			}
+			set
+			{
+				if ((this._RoleID != value))
+				{
+					this.OnRoleIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoleID = value;
+					this.SendPropertyChanged("RoleID");
+					this.OnRoleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleDescription", DbType="VarChar(50)")]
+		public string RoleDescription
+		{
+			get
+			{
+				return this._RoleDescription;
+			}
+			set
+			{
+				if ((this._RoleDescription != value))
+				{
+					this.OnRoleDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._RoleDescription = value;
+					this.SendPropertyChanged("RoleDescription");
+					this.OnRoleDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this._CreatedOn;
+			}
+			set
+			{
+				if ((this._CreatedOn != value))
+				{
+					this.OnCreatedOnChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedOn = value;
+					this.SendPropertyChanged("CreatedOn");
+					this.OnCreatedOnChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="VarChar(50)")]
+		public string CreatedBy
+		{
+			get
+			{
+				return this._CreatedBy;
+			}
+			set
+			{
+				if ((this._CreatedBy != value))
+				{
+					this.OnCreatedByChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedBy = value;
+					this.SendPropertyChanged("CreatedBy");
+					this.OnCreatedByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit")]
+		public System.Nullable<bool> IsActive
+		{
+			get
+			{
+				return this._IsActive;
+			}
+			set
+			{
+				if ((this._IsActive != value))
+				{
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="RoleMaster_Cts_User_Master", Storage="_Cts_User_Masters", ThisKey="RoleID", OtherKey="um_RoleId")]
+		public EntitySet<Cts_User_Master> Cts_User_Masters
+		{
+			get
+			{
+				return this._Cts_User_Masters;
+			}
+			set
+			{
+				this._Cts_User_Masters.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Cts_User_Masters(Cts_User_Master entity)
+		{
+			this.SendPropertyChanging();
+			entity.RoleMaster = this;
+		}
+		
+		private void detach_Cts_User_Masters(Cts_User_Master entity)
+		{
+			this.SendPropertyChanging();
+			entity.RoleMaster = null;
 		}
 	}
 }

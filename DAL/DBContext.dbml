@@ -1,13 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Courier_Tracking_System" Class="DBContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=PC446411;Initial Catalog=Courier_Tracking_System;Persist Security Info=True;User ID=sa" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Courier_Tracking_SystemConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.RoleMaster" Member="RoleMasters">
-    <Type Name="RoleMaster">
-      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="RoleDescription" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="RoleMaster_Cts_User_Master" Member="Cts_User_Masters" ThisKey="RoleID" OtherKey="um_RoleId" Type="Cts_User_Master" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=PC446259;Initial Catalog=Courier_Tracking_System;User ID=sa" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="Courier_Tracking_SystemConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cts_BranchMaster" Member="Cts_BranchMasters">
+    <Type Name="Cts_BranchMaster">
+      <Column Name="bm_branchCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bm_branchName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bm_IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cts_Package" Member="Cts_Packages">
+    <Type Name="Cts_Package">
+      <Column Name="pk_consignment_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pk_Add_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pk_Accept_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pk_Package_weight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pk_cost" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pk_Sender_address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pk_Receiver_address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pk_package_type" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="pk_Employee_id" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="pk_Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pk_Current_location" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="pk_Package_Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pk_isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Cts_User_Master_Cts_Package" Member="Cts_User_Master" ThisKey="pk_Customer_id" OtherKey="um_id" Type="Cts_User_Master" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Cts_User_Master" Member="Cts_User_Masters">
@@ -21,6 +36,7 @@
       <Column Name="um_contact" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="um_emailId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="um_isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="um_emp_cid" Type="System.String" DbType="VarChar(39)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="um_Salary" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="um_Designation" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
       <Column Name="um_PerAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
@@ -30,35 +46,18 @@
       <Column Name="um_IsApprovedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="um_IsApprovedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="um_RoleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="um_emp_cid" Type="System.String" DbType="VarChar(37)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Cts_User_Master_Cts_Package" Member="Cts_Packages" ThisKey="um_id" OtherKey="pk_Customer_id" Type="Cts_Package" />
       <Association Name="RoleMaster_Cts_User_Master" Member="RoleMaster" ThisKey="um_RoleId" OtherKey="RoleID" Type="RoleMaster" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Cts_BranchMaster" Member="Cts_BranchMasters">
-    <Type Name="Cts_BranchMaster">
-      <Column Name="bm_branchCode" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="bm_branchName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="bm_IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="bm_orders" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Cts_Package" Member="Cts_Packages">
-    <Type Name="Cts_Package">
-      <Column Name="pk_consignment_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pk_Accept_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="pk_Package_weight" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="pk_cost" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="pk_Sender_address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="pk_Receiver_address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="pk_package_type" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="pk_Employee_id" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
-      <Column Name="pk_Customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="pk_Current_location" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="pk_Package_Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="pk_isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="pk_Add_Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Cts_User_Master_Cts_Package" Member="Cts_User_Master" ThisKey="pk_Customer_id" OtherKey="um_id" Type="Cts_User_Master" IsForeignKey="true" />
+  <Table Name="dbo.RoleMaster" Member="RoleMasters">
+    <Type Name="RoleMaster">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleDescription" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="RoleMaster_Cts_User_Master" Member="Cts_User_Masters" ThisKey="RoleID" OtherKey="um_RoleId" Type="Cts_User_Master" />
     </Type>
   </Table>
 </Database>

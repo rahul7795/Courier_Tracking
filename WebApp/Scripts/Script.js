@@ -13,7 +13,7 @@
     var userPwd = document.getElementById("txtUserPassword").value;
     var userCpwd = document.getElementById("txtUserCPassword").value;
     var g = document.getElementById("ddlGender");
-    var gender = s.options[g.selectedIndex].value;
+    var gender = g.options[g.selectedIndex].value;
     var r = document.getElementById("ddlRole");
     var role = r.options[r.selectedIndex].value;
 

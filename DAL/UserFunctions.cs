@@ -62,6 +62,26 @@ namespace DAL
             }
         }
 
+        public static bool UpdateStatusPackage(int cid, string location, string status, bool active)
+        {
+            using (DBContextDataContext db = new DBContextDataContext())
+            {
+                try
+                {
+                    var package = db.Cts_Packages.Where(x => x.pk_consignment_id == cid && x.pk_Package_Status != "Delivered").FirstOrDefault();
+                    package.pk_Current_location = location;
+                    package.pk_Package_Status = status;
+                    package.pk_isActive = active;
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         public static bool ApprovePackage(int pk_id, bool status, int role, string empId, int cost, string location)
         {
             using (DBContextDataContext db = new DBContextDataContext())
@@ -84,16 +104,17 @@ namespace DAL
             }
         }
 
-        public static bool ApproveStatusPackage(int cid, string location, string status)
+        public static bool ApproveStatusPackage(int cid, string location, string status, int cost, bool active)
         {
             using (DBContextDataContext db = new DBContextDataContext())
             {
                 try
                 {
                     var package = db.Cts_Packages.Where(x => x.pk_consignment_id == cid).FirstOrDefault();
-                    package.pk_isActive = true;
+                    package.pk_isActive = active;
                     package.pk_Current_location = location;
                     package.pk_Package_Status = status;
+                    package.pk_cost = cost;
                     db.SubmitChanges();
                     return true;
                 }

@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApp
 {
-    public partial class ApprovePackageX : Page
+    public partial class UpdateStatus : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace WebApp
         {
             try
             {
-                List<Cts_Package> package = BAL.UserOperations.UserPackageStatus();
+                List<Cts_Package> package = BAL.UserOperations.UserPackageUpdateStatus();
                 gdvApprovalData.DataSource = package;
                 gdvApprovalData.DataBind();
             }
@@ -37,7 +37,6 @@ namespace WebApp
                 int cid = int.Parse((row.FindControl("lblcnsngId") as Label).Text);
                 string location = (row.FindControl("ddlLocation") as DropDownList).Text;
                 string status = (row.FindControl("ddlStatus") as DropDownList).Text;
-                int cost = int.Parse((row.FindControl("txtPkCost") as TextBox).Text);                
                 if (status == "Pending")
                 {
                     string _msg = string.Format("ErrFunction('{0}')", "Update the status");
@@ -45,9 +44,9 @@ namespace WebApp
                 }
                 else
                 {
-                    if (e.CommandName == "approve")
+                    if (e.CommandName == "change")
                     {
-                        if (BAL.UserOperations.ApproveStatusPackage(cid, location, status, cost, true))
+                        if (BAL.UserOperations.UpdateStatusPackage(cid, location, status, true))
                         {
                             string _msg = string.Format("SuccessFunction('{0}')", "Package Approved Successfully");
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", _msg, true);
@@ -60,7 +59,7 @@ namespace WebApp
                     }
                     else if (e.CommandName == "reject")
                     {
-                        if (BAL.UserOperations.ApproveStatusPackage(cid, location, status, cost, false))
+                        if (BAL.UserOperations.UpdateStatusPackage(cid, location, status, false))
                         {
                             string _msg = string.Format("ErrFunction('{0}')", "Package Rejected");
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", _msg, true);
@@ -69,7 +68,7 @@ namespace WebApp
                     LoadData();
                 }
             }
-            catch(Exception ex) { }
+            catch (Exception ex) { }
         }
 
         protected void gdvApprovalData_RowDataBound(object sender, GridViewRowEventArgs e)

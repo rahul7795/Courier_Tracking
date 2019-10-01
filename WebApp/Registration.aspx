@@ -204,10 +204,7 @@
 
                                 <div class="col-md-6 offset-md-4">
                                     <asp:Button runat="server" ID="btnLogin" Text="Register" ClientIDMode="Static"
-                                        class="btn btn-primary" OnClick="btnLogin_Click" OnClientClick="return validate()" />
-                                    <div>
-                                        <a class="small" href="ForgetPassword.aspx">Forgot Password?</a>
-                                    </div>
+                                        class="btn btn-primary" OnClick="btnLogin_Click" OnClientClick="return validate()" />                                    
                                     <div>
                                         <a class="small" href="Login.aspx">Already have an account? Login!</a>
                                     </div>

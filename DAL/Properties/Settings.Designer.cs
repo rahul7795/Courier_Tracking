@@ -33,5 +33,16 @@ namespace DAL.Properties {
                 return ((string)(this["Courier_Tracking_SystemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PC446259;Initial Catalog=Courier_Tracking_System;User ID=sa;Password=" +
+            "password-1")]
+        public string Courier_Tracking_SystemConnectionString1 {
+            get {
+                return ((string)(this["Courier_Tracking_SystemConnectionString1"]));
+            }
+        }
     }
 }

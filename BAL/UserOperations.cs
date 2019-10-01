@@ -24,6 +24,11 @@ namespace BAL
             return DAL.UserFunctions.GetPackage(cid);
         }
 
+        public static List<Cts_Package> UserPackageUpdateStatus()
+        {
+            return DAL.AdminOperations.UserPackageUpdateStatus();
+        }
+
         public static List<Cts_Package> PackageStatus()
         {
             return DAL.AdminOperations.PackageStatus();
@@ -39,9 +44,14 @@ namespace BAL
             return DAL.UserFunctions.ApprovePackage(pk_id, status, role, empId, cost, location);
         }
 
-        public static bool ApproveStatusPackage(int cid, string location, string status)
+        public static bool ApproveStatusPackage(int cid, string location, string status, int cost, bool active)
         {
-            return DAL.UserFunctions.ApproveStatusPackage(cid, location, status);
+            return DAL.UserFunctions.ApproveStatusPackage(cid, location, status, cost, active);
+        }
+
+        public static bool UpdateStatusPackage(int cid, string location, string status, bool active)
+        {
+            return DAL.UserFunctions.UpdateStatusPackage(cid, location, status, active);
         }
     }
 }

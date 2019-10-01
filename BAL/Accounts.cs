@@ -31,6 +31,7 @@ namespace BAL
                 return false;
             }            
         }
+
         public static bool UpdateProfile(int umId, Cts_User_Master update)
         {
             return DAL.UserAccounts.UpdateProfile(umId, update);
